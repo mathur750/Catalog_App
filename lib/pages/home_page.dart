@@ -8,9 +8,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Catalog App'),
-        backgroundColor: Colors.amber,
-      ),
+          title: const Text('Catalog App'), backgroundColor: Colors.deepPurple),
       body: Center(
         child: Container(
           child: Text("Welcoe to 30 days of flutter"),
