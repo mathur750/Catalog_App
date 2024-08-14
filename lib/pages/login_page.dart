@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_tut/utils/routes.dart';
 
 class LoginPage extends StatefulWidget {
@@ -10,6 +11,7 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   String name = "";
+  bool changeButton = false;
 
   @override
   Widget build(BuildContext context) {
@@ -58,12 +60,51 @@ class _LoginPageState extends State<LoginPage> {
                     const SizedBox(
                       height: 30.0,
                     ),
-                    ElevatedButton(
+                    InkWell(
+                      onTap: () async {
+                        setState(() {
+                          changeButton = true;
+                        });
+
+                        await Future.delayed(const Duration(seconds: 1));
+
+                        Navigator.pushNamed(context, MyRoutes.homeRoute);
+                      },
+                      child: AnimatedContainer(
+                        duration: Duration(seconds: 1),
+                        // Container ki help se Elevated button ko design kr rhe hai.
+                        alignment: Alignment.center,
+
+                        width: changeButton
+                            ? 50
+                            : 130, //changeButton use to reduce the button size.
+                        height: 50,
+                        // color: Colors.deepPurpleAccent,
+                        child: changeButton
+                            ? Icon(
+                                Icons.done,
+                                color: Colors.white,
+                              )
+                            : Text(
+                                "Login",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 15),
+                              ),
+                        decoration: BoxDecoration(
+                          color: Colors.deepPurpleAccent,
+                          borderRadius:
+                              BorderRadius.circular(changeButton ? 20 : 8),
+                        ),
+                      ),
+                    ),
+                    /* ElevatedButton(
                       child: Text("Login"),
                       onPressed: () {
                         Navigator.pushNamed(context, MyRoutes.homeRoute);
                       },
-                    ),
+                    ),*/
                   ],
                 ),
               )
