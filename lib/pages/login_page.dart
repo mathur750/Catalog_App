@@ -40,9 +40,14 @@ class _LoginPageState extends State<LoginPage> {
                         hintText: "Enter Username",
                         labelText: "Username",
                       ),
-                      onChanged:  
+                      // ignore: non_constant_identifier_names
+                      onChanged: (Value) {
+                        name = Value;
+                        setState(() {
+                          // iska use krne pr ye build maithod ko dubara call kr deta hai.
+                        });
+                      },
                     ),
-                    
                     TextFormField(
                       obscureText: true, // use for hide the password.
                       decoration: const InputDecoration(
