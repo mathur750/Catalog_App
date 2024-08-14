@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tut/utils/routes.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  String name = "";
 
   @override
   Widget build(BuildContext context) {
@@ -16,8 +23,8 @@ class LoginPage extends StatelessWidget {
                 "assets/images/login.png.png",
                 fit: BoxFit.cover,
               )),
-              const Text(
-                "Welcome",
+              Text(
+                "Welcome $name",
                 style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold),
               ),
               const SizedBox(
@@ -33,7 +40,9 @@ class LoginPage extends StatelessWidget {
                         hintText: "Enter Username",
                         labelText: "Username",
                       ),
+                      onChanged:  
                     ),
+                    
                     TextFormField(
                       obscureText: true, // use for hide the password.
                       decoration: const InputDecoration(
