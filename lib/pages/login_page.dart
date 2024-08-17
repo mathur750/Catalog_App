@@ -122,7 +122,7 @@ class _LoginPageState extends State<LoginPage> {
                                       fontSize: 15),
                                 ),
                           decoration: BoxDecoration(
-                            color: Colors.deepPurpleAccent,
+                            color: Colors.blueAccent,
                             borderRadius:
                                 BorderRadius.circular(changeButton ? 20 : 8),
                           ),
