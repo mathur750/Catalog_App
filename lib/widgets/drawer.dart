@@ -9,52 +9,55 @@ class MyDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-        backgroundColor: Colors.orangeAccent,
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: const [
-            DrawerHeader(
-                padding: EdgeInsets.zero,
-                child: UserAccountsDrawerHeader(
-                  decoration: BoxDecoration(color: Colors.orangeAccent),
-                  margin: EdgeInsets.zero,
-                  accountName: Text("Saurabh Mathur"),
-                  accountEmail: Text("saurabhmathur750@gmail.com"),
-                  currentAccountPicture: CircleAvatar(
-                    backgroundImage: NetworkImage("imageUrl"),
-                  ),
-                )),
-            ListTile(
-              leading: Icon(
-                CupertinoIcons.profile_circled,
-                color: Colors.white,
-              ),
-              title: Text(
-                "Profile",
-                style: TextStyle(color: Colors.white),
-              ),
+      backgroundColor:
+          Colors.orangeAccent, // drawer ke colour ko change krne ke liye
+      child: ListView(
+        padding: EdgeInsets.zero,
+        children: const [
+          DrawerHeader(
+              padding: EdgeInsets.zero,
+              child: UserAccountsDrawerHeader(
+                decoration: BoxDecoration(color: Colors.orangeAccent),
+                margin: EdgeInsets.zero,
+                accountName: Text("Saurabh Mathur"),
+                accountEmail: Text("saurabhmathur750@gmail.com"),
+                currentAccountPicture: CircleAvatar(
+                  backgroundImage: NetworkImage(
+                      "imageUrl"), // drawer wale section me image show krane ke liye
+                ),
+              )),
+          ListTile(
+            leading: Icon(
+              CupertinoIcons.profile_circled,
+              color: Colors.white,
             ),
-            ListTile(
-              leading: Icon(
-                CupertinoIcons.home,
-                color: Colors.white,
-              ),
-              title: Text(
-                "Home",
-                style: TextStyle(color: Colors.white),
-              ),
+            title: Text(
+              "Profile",
+              style: TextStyle(color: Colors.white),
             ),
-            ListTile(
-              leading: Icon(
-                CupertinoIcons.mail,
-                color: Colors.white,
-              ),
-              title: Text(
-                "Email me",
-                style: TextStyle(color: Colors.white),
-              ),
+          ),
+          ListTile(
+            leading: Icon(
+              CupertinoIcons.home,
+              color: Colors.white,
             ),
-          ],
-        ));
+            title: Text(
+              "Home",
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
+          ListTile(
+            leading: Icon(
+              CupertinoIcons.mail,
+              color: Colors.white,
+            ),
+            title: Text(
+              "Email me",
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
