@@ -48,9 +48,7 @@ class _LoginPageState extends State<LoginPage> {
                   "Welcome $name",
                   style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold),
                 ),
-                const SizedBox(
-                  height: 20.0,
-                ),
+                const SizedBox(height: 20.0),
                 Padding(
                   padding: const EdgeInsets.symmetric(
                       vertical: 16.0, horizontal: 32.0),
