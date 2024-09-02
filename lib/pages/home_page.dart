@@ -14,13 +14,16 @@ class HomePage extends StatelessWidget {
         backgroundColor: Colors.orangeAccent,
         title: const Center(child: Text('Catalog App')),
       ),
-      body: ListView.builder(
-        itemCount: CatalogModel.items.length,
-        itemBuilder: (context, index) {
-          return ItemWidget(
-            item: CatalogModel.items[index],
-          );
-        },
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: ListView.builder(
+          itemCount: CatalogModel.items.length,
+          itemBuilder: (context, index) {
+            return ItemWidget(
+              item: CatalogModel.items[index],
+            );
+          },
+        ),
       ),
       drawer: MyDrawer(),
     );

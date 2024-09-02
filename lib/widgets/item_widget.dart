@@ -10,8 +10,24 @@ class ItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      leading: Image.network(item.image),
+    final dummyList = List.generate(
+      10,
+      (index) => CatalogModel.items[0],
     );
+    return Card(
+      child: ListTile(
+        onTap: () {
+          print("${item.name} pressed");
+        },
+        leading: Image.network(item.image),
+        title: Text(item.name),
+        subtitle: Text(item.desc),
+        trailing: Text(999.toString()),
+        /*style: TextStyle(
+          color: Colors.deepPurple,
+          fontWeight: FontWeight.bold,*/
+      ),
+    );
+    // );
   }
 }
