@@ -1,7 +1,8 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class CatalogModel {
-  static final items = [
+  static List items = [
     Item(
       id: "1",
       name: "iPhone 12 Pro",
@@ -31,51 +32,23 @@ class Item {
     required this.image,
   });
 
-  // Convert color from hex string to Color object
-  Color getColor() {
-    String hex = color.replaceAll("#", "");
-    return Color(int.parse("FF$hex", radix: 16));
-  }
-}
-
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("Catalog App"),
-        ),
-        body: ListView.builder(
-          itemCount: CatalogModel.items.length,
-          itemBuilder: (context, index) {
-            final item = CatalogModel.items[index];
-            return ListTile(
-              leading: Image.network(
-                item.image,
-                errorBuilder: (context, error, stackTrace) {
-                  return Icon(
-                      Icons.broken_image); // Placeholder for broken images
-                },
-              ),
-              title: Text(item.name),
-              subtitle: Text(item.desc),
-              trailing: Text("\$${item.price}"),
-              tileColor: item
-                  .getColor()
-                  .withOpacity(0.1), // Use the color for the background
-            );
-          },
-        ),
-      ),
+  factory Item.fromMap(Map<String, dynamic> Map) {
+    return Item(
+      id: Map["id"],
+      name: Map["name"],
+      desc: Map["desc"],
+      price: Map["price"],
+      color: Map["color"],
+      image: Map["image"],
     );
   }
+
+  toMap() => {
+        "id": id,
+        "name": name,
+        "desc": desc,
+        "price": price,
+        "color": color,
+        "image": image,
+      };
 }
